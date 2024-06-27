@@ -11,9 +11,14 @@ from pipeline.ingestion import build_pipeline, build_vector_store, read_data
 from pipeline.qa import read_jsonl, save_answers
 from pipeline.rag import QdrantRetriever, generation_with_knowledge_retrieval
 
-
+config = {
+    "GLM_KEY": "0c6ac2954d46fda77c293628aa1374d8.i0rrApDDXHwX1Uwj",  # 假设这是你的API密钥
+    "QDRANT_URL": "http://localhost:6333",
+    "COLLECTION_NAME":"aiops2024",
+    "VECTOR_SIZE":1024
+}
 async def main():
-    config = dotenv_values(".env")
+    #config = dotenv_values(".env")
 
     # 初始化 LLM 嵌入模型 和 Reranker
     llm = OpenAI(
